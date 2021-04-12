@@ -1,6 +1,6 @@
 // Copyright 2021 Vlad
-#ifndef INCLUDE_TIMEDOOR_H_
-#define INCLUDETIMEDOOR_H_
+#ifndef INCLUDE_TIMEDDOOR_H_
+#define INCLUDE_TIMEDDOOR_H_
 
 #include<string>
 #include <ctime>
@@ -14,7 +14,8 @@ class DoorAdapter {
     TimedDoor& timedDoor;
     Timer& timer;
  public:
-    explicit DoorAdapter(TimedDoor& _timeDoor, Timer& _timer) : timedDoor(_timeDoor), timer(_timer) {};
+    explicit DoorAdapter(TimedDoor& _timeDoor, Timer& _timer) : 
+		timedDoor(_timeDoor), timer(_timer) {};
     void TimeOut();
 };
 
@@ -24,7 +25,6 @@ class Timer {
     void sleep(int _time);
  public:
     void tregister(int time);
-
 };
 
 class TimedDoor {
@@ -33,7 +33,7 @@ class TimedDoor {
     int timeout;
     bool isopened;
  public:
-    TimedDoor(int timeout) {
+    explicit TimedDoor(int timeout) {
         this->timeout = timeout;
         Timer* timer = new Timer();
         adapter = new DoorAdapter(*this, *timer);
@@ -46,4 +46,4 @@ class TimedDoor {
     int getTimeout();
     void throwState();
 };
-#endif //  INCLUDE_TIMEDOOR_H_
+#endif  //  INCLUDE_TIMEDDOOR_H_

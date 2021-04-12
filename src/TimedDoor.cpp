@@ -9,7 +9,6 @@ void TimedDoor::unlock() {
 
 void TimedDoor::lock() {
     isopened = false;
-    
 }
 
 bool TimedDoor::isOpened() {
@@ -17,7 +16,7 @@ bool TimedDoor::isOpened() {
 }
 
 void TimedDoor::throwMessage() {
-    throw std::string("Close the door");
+    throw std::string("close the door!");
 }
 
 int TimedDoor::getTimeout() {
@@ -41,6 +40,6 @@ void Timer::tregister(int time) {
 
 void DoorAdapter::TimeOut() {
     timer.tregister(timedDoor.getTimeout());
-    if(timedDoor.isOpened())
+    if (timedDoor.isOpened())
         timedDoor.throwMessage();
 }
