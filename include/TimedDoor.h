@@ -15,7 +15,7 @@ class DoorAdapter {
     Timer& timer;
  public:
     explicit DoorAdapter(TimedDoor& _timeDoor, Timer& _timer) :
-		timedDoor(_timeDoor), timer(_timer) {};
+	timedDoor(_timeDoor), timer(_timer) {}
     void TimeOut();
 };
 
